@@ -1,0 +1,31 @@
+1）查看redis 的进程的ID号
+redis-ci -p 6379 info server | grep process_id
+2)查看当前的内存的交换情况
+# cat /proc/ 4476/ smaps | grep Swap 
+3）降低swap的优先级
+echo 10>/proc/sys/vm/ swappiness，
+4）redis的拒绝链接的数量
+``redis- cli -p 6379 info Stats | grep rejected_ connections```
+5)慢日志获取
+slowlog get n n条
+slowlog len 长度
+slowlog reset 重置慢查询
+
+6）查看网络延迟
+redis- cli -h {machineB} --latency
+
+7）发布订阅
+publish channel message
+
+8）订阅
+subscribe channel [channel ...]
+ 
+9）取消订阅
+
+unsubscribe [channel [channel ...]]
+查看活跃频道
+pubsub channels [pattern]
+查看频道订阅数
+
+pubsub numsub [channel ...]
+
