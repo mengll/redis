@@ -210,6 +210,8 @@ db.goods.mapReduce(map,reduce,{out:'res'});
 
 var map = function() {
     emit(this.cat_id,this.shop_price);
+    如果想实现 grouby id,name的做法是
+    var key =id.':'.name; 获取当前的 联合的key
     }
 
 
