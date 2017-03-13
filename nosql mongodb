@@ -270,4 +270,21 @@ db.res.find({})
 
 //mongodb排序
 b.COLLECTION_NAME.find().sort({KEY:1})
+54) mapreduce 的集中的用法
 
+ 
+{
+  map : function(){
+     emit(this.key,value);
+  }
+  ,reduce:function( key,value){
+  
+  }
+ ,   {
+      out: collection, //结果输出到文件集合
+      query: document, //查询的条件
+      sort: document, //排序的方式
+      limit: number  //每次显示的个数
+   }
+
+}
