@@ -237,12 +237,6 @@ var reduce = function(k,v){
 db.getCollection('test_channel').mapReduce(map,reduce,{out:"res"}) //导出的结果，后进行查询，现在缺憾是无法排除空的选项，有待于完善
 db.res.find({})
 
-
-
-
-
-
-
-
-
+//mongodb排序
+b.COLLECTION_NAME.find().sort({KEY:1})
 
