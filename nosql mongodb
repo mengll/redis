@@ -37,6 +37,37 @@ db.goods.find({goods_id:{$mod:[5,1]}});
 db.stu.find({age:{$exists:1}});
 含有age属性的文档将会被查出
 
+1.11 修改单元
+db.goods.update({查询条件},{$set:{},$unset:{}})
+
+$set
+用来指定一个键并更新键值，若键不存在并创建。
+{ $set : { field : value } }
+
+$unset
+用来删除一个键。
+{ $unset : { field : 1} }
+
+$inc
+$inc可以对文档的某个值为数字型（只能为满足要求的数字）的键进行增减的操作。
+{ $inc : { field : value } }
+
+$push
+用法：{ $push : { field : value } }
+
+把value追加到field里面去，field一定要是数组类型才行，如果field不存在，会新增一个数组类型加进去。
+$pushAll
+同$push,只是一次可以追加多个值到一个数组字段内。
+{ $pushAll : { field : value_array } }
+
+$pull
+从数组field内删除一个等于value值。
+
+{ $pull : { field : _value } }
+
+$rename
+修改字段名称
+{ $rename : { old_field_name : new_field_name } }
 
 
 #查询每个栏目下的商品数量
