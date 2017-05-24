@@ -288,3 +288,12 @@ b.COLLECTION_NAME.find().sort({KEY:1})
    }
 
 }
+
+
+//数据导出使用
+db.getCollection('loginData').aggregate([
+    {$match:{pid:'1390'}},
+    {$group:{_id:"$idfa",total:{$sum:1}}},
+    {$out:'1390_result'}
+])
+
