@@ -297,3 +297,9 @@ db.getCollection('loginData').aggregate([
     {$out:'1390_result'}
 ])
 
+db.getCollection('loginData').aggregate([
+    {$match:{pid:'1474',$and:[{uptime:{$gt:1495814400}},{uptime:{$lt:1496116799}}]}},
+    {$group:{_id:"$idfa",total:{$sum:1}}},
+    {$out:'1474_result'}
+])
+
