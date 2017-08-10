@@ -303,3 +303,20 @@ db.getCollection('loginData').aggregate([
     {$out:'1474_result'}
 ])
 
+
+
+
+var map  = function() {
+            if(this.created_ad){
+                var tim = this.created_at.substring(0,10); 
+                emit(tim,1);
+            }
+        }
+        
+        
+ var reduce = function(cat_id,numbers) {
+    return Array.sum(numbers);
+}
+
+db.getCollection('device_apps_log').mapReduce(map,reduce,{out:"res"})
+
