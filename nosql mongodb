@@ -306,9 +306,10 @@ db.getCollection('loginData').aggregate([
 
 
 
+
 var map  = function() {
-            if(this.created_ad){
-                var tim = this.created_at.substring(0,10); 
+            if(this.created_at){
+                var tim = this.created_at.toISOString().substring(0,10); 
                 emit(tim,1);
             }
         }
@@ -319,4 +320,3 @@ var map  = function() {
 }
 
 db.getCollection('device_apps_log').mapReduce(map,reduce,{out:"res"})
-
