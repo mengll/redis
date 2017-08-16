@@ -320,3 +320,6 @@ var map  = function() {
 }
 
 db.getCollection('device_apps_log').mapReduce(map,reduce,{out:"res"})
+
+
+db.getCollection('device_apps_log').find({created_at:{"$gte":ISODate('2017-07-20'),"$lt":ISODate('2017-07-21')},pid:1452,rid:'19898'})
